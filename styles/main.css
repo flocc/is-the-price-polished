@@ -1,0 +1,165 @@
+#pop {
+  --col-1: 24px;
+  --col-2: 92px;
+  --col-3: 28px;
+  --col-4: 92px;
+  --pop-positive-3: #8abb3c;
+  --pop-positive-2: #8abb3c;
+  --pop-positive-1: #8abb3c;
+  --pop-neutral: goldenrod;
+  --pop-negative-1: #ff4242;
+  --pop-negative-2: #ff4242;
+  --pop-negative-3: #ff4242;
+}
+
+#pop.pop {
+  display: block;
+  padding: 16px;
+  font-family: "Motiva Sans", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-variant-numeric: tabular-nums;
+  width: 100%;
+  box-sizing: border-box;
+  font-weight: 600;
+  font-size: 17px;
+}
+
+#pop .row {
+  display: grid;
+  grid-template-columns: var(--col-1) var(--col-2) var(--col-3) var(--col-4) 1fr;
+  gap: 4px;
+  align-items: center;
+  margin: 8px 0;
+}
+
+#pop .row:first-child {
+  margin-top: 0;
+}
+
+#pop .row:last-child {
+  margin-bottom: 0;
+  position: relative; /* hamburger */
+}
+
+#pop .pop-reaction {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+}
+
+#pop .pop-reaction svg {
+  display: block !important;
+  width: 25px;
+  height: 25px;
+  flex-shrink: 0;
+}
+
+#pop .pop-description {
+  position: relative;
+  font-size: 16px;
+  font-weight: 400;
+}
+
+#pop .menu {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  display: flex;
+  color: #c6d4df;
+  opacity: 0.4;
+  transition: opacity 0.2s ease;
+}
+
+#pop .menu:hover,
+#pop .menu:focus {
+  opacity: 1;
+}
+
+#pop .menu svg {
+  width: 24px;
+  height: 24px;
+  display: block;
+}
+
+#pop .span-2 { grid-column: span 2; }
+#pop .span-4 { grid-column: span 4; }
+
+#pop .arrow {
+  text-align: center;
+  color: #777;
+  transform: scale(1.3, 1.1);
+}
+
+#pop .valve-increase { color: #ff9100; }
+#pop .valve-decrease { color: #85b6e1; }
+
+#pop .pop-positive-1,
+#pop .pop-positive-2,
+#pop .pop-positive-3 {
+  color: var(--pop-positive-1);
+}
+
+#pop .pop-negative-1,
+#pop .pop-negative-2,
+#pop .pop-negative-3 {
+  color: var(--pop-negative-1);
+}
+
+#pop .pop-neutral {
+  color: var(--pop-neutral);
+}
+
+#pop .price {
+  position: relative;
+  text-align: right;
+}
+
+#pop .price-left {
+  text-align: left;
+}
+
+#pop .price-value {
+  position: relative;
+  display: inline-block;
+}
+
+#pop .valve-diff-pct {
+  position: absolute;
+  left: 100%;
+  margin-left: 5px;
+  transform: translateY(-40%);
+  font-size: 0.75em;
+}
+
+#pop .valve-recommendation {
+  text-align: right;
+  color: #666;
+  font-size: 14px;
+  font-weight: 400;
+}
+
+#pop .currency {
+  font-size: 0.9em;
+  font-weight: 600;
+}
+
+#pop .valve-recommendation .currency {
+  font-weight: inherit;
+}
+
+#pop .flag {
+  display: block;
+  border-radius: 2px;
+  width: 26px;
+  height: 18px;
+  background-size: 140%;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+#pop hr.pop-line {
+  border: none;
+  height: 0;
+  border-top: 1px #444 solid;
+}
