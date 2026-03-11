@@ -64,7 +64,7 @@ export const renderWidget = (data) => {
         </div>
         <hr class="pop-line" style="--color: var(--${reviewTier})">
         <div class="row">
-          <div class="pop-description span-4">${verdict}</div>
+          <div class="pop-description span-5">${verdict}</div>
           <div class="menu">${hamburger}</div>
         </div>
       </div>

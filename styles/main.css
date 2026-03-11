@@ -83,7 +83,7 @@
 }
 
 #pop .span-2 { grid-column: span 2; }
-#pop .span-4 { grid-column: span 4; }
+#pop .span-5 { grid-column: span 5; }
 
 #pop .arrow {
   text-align: center;
