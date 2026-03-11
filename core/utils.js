@@ -5,12 +5,14 @@ const nf = new Intl.NumberFormat('pl-PL', {
   maximumFractionDigits: 2
 });
 
-export const fmt = (num) => nf.format(num);
+const nfSigned = new Intl.NumberFormat('pl-PL', {
+  minimumFractionDigits: 2,
+  maximumFractionDigits: 2,
+  signDisplay: 'exceptZero'
+});
 
-export const fmtSigned = (num) => {
-  const sign = num > 0 ? '+' : num < 0 ? '-' : '';
-  return sign + nf.format(Math.abs(num));
-};
+export const fmt       = v => v != null ? nf.format(v) : '';
+export const fmtSigned = v => v != null ? nfSigned.format(v) : '';
 
 export const getDiffTooltip = (diff) =>
   diff >= 0 ? 'Tyle płacimy więcej' : 'Tyle płacimy mniej';
