@@ -59,7 +59,7 @@ export function waitForElement(selector, timeout = 6666) {
       }
     });
 
-    observer.observe(document.body, { childList: true, subtree: true });
+    observer.observe(document, { childList: true, subtree: true });
 
     setTimeout(() => {
       observer.disconnect();
