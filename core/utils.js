@@ -43,7 +43,7 @@ export function getReviewReactionSvg(pop) {
   return ICONS.THUMBS["DOWN-LEFT"].repeat(3) + ICONS.REACTIONS["NEGATIVE-1"];
 }
 
-export function getChangeType(change) {
+export function getValveType(change) {
   return change > 0 ? 'valve-increase' : 'valve-decrease';
 }
 
