@@ -2,6 +2,7 @@
   "manifest_version": 3,
   "name": "Is the Price Polished?",
   "version": "0.1.0",
+  "description": "Porównywarka cen PLN względem EUR na Steam",
   "content_scripts": [
     {
       "matches": ["https://store.steampowered.com/app/*"],
