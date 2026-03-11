@@ -24,7 +24,7 @@ export const renderWidget = (data) => {
         <div class="row">
           <div class="flag" style="background-image: url('${euFlag}')"></div>
           <div class="price" data-tooltip-text="Bazowa cena w Europie przeliczona na złotówki">${fmt(data.eurConverted)}<span class="currency"> zł</span></div>
-          <div class="arrow">🡄</div>
+          <div class="arrow"><span data-tooltip-text="EUR/PLN = ${data.eurRate}">🡄</span></div>
           <div class="price price-left">
             <div class="price-value"><span data-tooltip-text="Bazowa cena w Europie">${fmt(data.eur)}
               <span class="currency"> €</span></span>
