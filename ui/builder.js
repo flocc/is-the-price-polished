@@ -13,8 +13,8 @@ export const renderWidget = (data) => {
   const eurConverted = fmt(data.eurConverted);
   const valvePln = fmt(data.valvePln);
   const valveEur = fmt(data.valveEur);
-  const valveDiffPctPln = fmtSigned(data.valveDiffPctPln);
-  const valveDiffPctEur = fmtSigned(data.valveDiffPctEur);
+  const valveDiffPctPln = data.valveDiffPctPln !== 0 ? fmtSigned(data.valveDiffPctPln) + '%' : '';
+  const valveDiffPctEur = data.valveDiffPctEur !== 0 ? fmtSigned(data.valveDiffPctEur) + '%' : '';
   const diff = fmtSigned(data.diff);
   const diffPct = fmtSigned(data.diffPct);
   const eurRate = fmt(data.eurRate);
@@ -34,7 +34,7 @@ export const renderWidget = (data) => {
           <div class="price">
             <div class="price-value"><span data-tooltip-text="Bazowa cena w Polsce">${pln}
               <span class="currency"> zł</span></span>
-              <span class="valve-diff-pct ${valveTypePln}" data-tooltip-text="Różnica od sugerowanej ceny (%)">${valveDiffPctPln}%</span>
+              <span class="valve-diff-pct ${valveTypePln}" data-tooltip-text="Różnica od sugerowanej ceny (%)">${valveDiffPctPln}</span>
             </div>
           </div>
           <div class="span-2"></div>
@@ -47,7 +47,7 @@ export const renderWidget = (data) => {
           <div class="price price-left">
             <div class="price-value"><span data-tooltip-text="Bazowa cena w Europie">${eur}
               <span class="currency"> €</span></span>
-              <span class="valve-diff-pct ${valveTypeEur}" data-tooltip-text="Różnica od sugerowanej ceny (%)">${valveDiffPctEur}%</span>
+              <span class="valve-diff-pct ${valveTypeEur}" data-tooltip-text="Różnica od sugerowanej ceny (%)">${valveDiffPctEur}</span>
               </div>
             </div>
           <div class="valve-recommendation"><span data-tooltip-text="Sugerowana cena w Europie">${valveEur}<span class="currency"> €</span></span></div>
