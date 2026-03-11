@@ -77,7 +77,7 @@ export const renderSkeleton = () => {
     <div id="pop" class="block pop">
       <div class="block_content_inner">
         <div class="row">
-          <div class="pop-description span-4">zZzZZZzzZzz...</div>
+          <div class="pop-description span-5">zZzZZZzzZzz...</div>
           <div class="menu">${hamburger}</div>
         </div>
       </div>
@@ -92,7 +92,7 @@ export const renderError = (message) => {
     <div id="pop" class="block pop">
       <div class="block_content_inner">
         <div class="row">
-          <div class="pop-description span-4">${message}</div>
+          <div class="pop-description span-5">${message}</div>
           <div class="menu">${hamburger}</div>
         </div>
       </div>
