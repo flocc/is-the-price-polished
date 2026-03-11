@@ -52,3 +52,31 @@ export const renderWidget = (data) => {
     </div>
   `.trim();
 };
+
+export const renderSkeleton = () => {
+  return `
+    <div id="pop" class="block pop">
+      <div class="block_content_inner">
+        <div class="row">
+          <div class="pop-description span-4">zZzZZZzzZzz...</div>
+          <div class="menu">${ICONS.MENU["hamburger"]}</div>
+        </div>
+      </div>
+    </div>
+  `.trim();
+};
+
+export const renderError = (message) => {
+  if (!message) return '';
+
+  return `
+    <div id="pop" class="block pop">
+      <div class="block_content_inner">
+        <div class="row">
+          <div class="pop-description span-4">${message}</div>
+          <div class="menu">${ICONS.MENU["hamburger"]}</div>
+        </div>
+      </div>
+    </div>
+  `.trim();
+};
