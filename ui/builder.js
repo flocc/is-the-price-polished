@@ -1,11 +1,8 @@
-import { fmt, fmtSigned, getValveType, getReviewTier, getReviewReactionSvg, getDiffTooltip, getDiffPctTooltip } from '../core/utils.js';
-import { ICONS } from '../assets/icons.js';
-
 const euFlag = chrome.runtime.getURL('assets/flags/eu.svg');
 const plFlag = chrome.runtime.getURL('assets/flags/pl.svg');
 const hamburger = ICONS.MENU["hamburger"];
 
-export const renderWidget = (data) => {
+const renderWidget = (data) => {
   if (!data) return '';
 
   const pln = fmt(data.pln);
@@ -72,7 +69,7 @@ export const renderWidget = (data) => {
   `.trim();
 };
 
-export const renderSkeleton = () => {
+const renderSkeleton = () => {
   return `
     <div id="pop" class="block pop">
       <div class="block_content_inner">
@@ -85,7 +82,7 @@ export const renderSkeleton = () => {
   `.trim();
 };
 
-export const renderError = (message) => {
+const renderError = (message) => {
   if (!message) return '';
 
   return `

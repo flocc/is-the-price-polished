@@ -1,5 +1,4 @@
-popLog('main.js')
-import { renderSkeleton, renderError, renderWidget } from '../ui/builder.js';
+popLog('document_end');
 
 const init = async () => {
   const target = document.querySelector('div.rightcol.game_meta_data');
