@@ -5,6 +5,9 @@ const hamburger = ICONS.MENU["hamburger"];
 const renderWidget = (data) => {
   if (!data) return '';
 
+  const polishDev = data.isPolishDev ? 'polish-dev' : '';
+  const polishDevTooltip = data.isPolishDev ? 'Developer lub/i wydawca jest z Polski' : '';
+
   const pln = fmt(data.pln);
   const eur = fmt(data.eur);
   const eurConverted = fmt(data.eurConverted);
@@ -27,7 +30,7 @@ const renderWidget = (data) => {
     <div id="pop" class="block pop">
       <div class="block_content_inner">
         <div class="row">
-          <div class="flag" style="background-image: url('${plFlag}')"></div>
+          <div class="flag ${polishDev}" data-tooltip-text="${polishDevTooltip}"><img src="${plFlag}"></div>
           <div class="price">
             <div class="price-value"><span data-tooltip-text="Bazowa cena w Polsce">${pln}
               <span class="currency"> zł</span></span>
@@ -38,7 +41,7 @@ const renderWidget = (data) => {
           <div class="valve-recommendation"><span data-tooltip-text="Sugerowana cena w Polsce">${valvePln}<span class="currency"> zł</span></span></div>
         </div>
         <div class="row">
-          <div class="flag" style="background-image: url('${euFlag}')"></div>
+          <div class="flag"><img src="${euFlag}"></div>
           <div class="price" data-tooltip-text="Bazowa cena w Europie przeliczona na złotówki">${eurConverted}<span class="currency"> zł</span></div>
           <div class="arrow"><span data-tooltip-text="EUR/PLN = ${eurRate}">🡄</span></div>
           <div class="price price-left">
