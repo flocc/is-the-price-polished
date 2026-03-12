@@ -8,6 +8,9 @@ const renderWidget = (data) => {
   const polishDev = data.isPolishDev ? 'polish-dev' : '';
   const polishDevTooltip = data.isPolishDev ? 'Developer lub/i wydawca jest z Polski' : '';
 
+  const diffTooltip = getDiffTooltip(data.diff)
+  const diffPctTooltip = getDiffPctTooltip(data.diff)
+
   const pln = fmt(data.pln);
   const eur = fmt(data.eur);
   const eurConverted = fmt(data.eurConverted);
@@ -54,10 +57,10 @@ const renderWidget = (data) => {
         </div>
         <hr class="pop-line" style="--color: var(--${reviewTier})">
         <div class="row ${reviewTier}">
-          <div class="price span-2" data-tooltip-text="${getDiffTooltip(diff)}">${diff}
+          <div class="price span-2" data-tooltip-text="${diffTooltip}">${diff}
             <span class="currency"> zł</span>
           </div>
-          <div class="price span-2 price-left" data-tooltip-text="${getDiffPctTooltip(diff)}">
+          <div class="price span-2 price-left" data-tooltip-text="${diffPctTooltip}">
             <span style="font-weight: 300; margin: 0 3px 0 6px">(</span>${diffPct}<span class="currency">%</span><span style="font-weight: 300; margin-left: 3px">)</span>
           </div>
           <div class="pop-reaction">${reviewReactionSvg}</div>
