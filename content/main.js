@@ -1,28 +1,18 @@
-import { waitForElement } from '../core/utils.js';
+popLog('main.js')
 import { renderSkeleton, renderError, renderWidget } from '../ui/builder.js';
 
 const init = async () => {
-  const appId = window.location.pathname.match(/\/app\/(\d+)/)?.[1];
-  if (!appId) return;
-
-  const promise = fetch(`https://polishourprices.pl/api/games/${appId}`)
-    .then(response => {
-      if (response.status === 400) throw new Error('Niepoprawny ID gry.');
-      if (response.status === 404) throw new Error('W tej chwili gry spoza kuratorów nie są obsługiwane. Ale to się zmieni niedługo!');
-      if (response.status === 500) throw new Error('Problem z serwerem.');
-      if (!response.ok) throw new Error(`Inny (${response.status})`);
-      return response.json();
-    });
+  const target = document.querySelector('div.rightcol.game_meta_data');
+  if (!target || !globalThis.popPromise) return;
 
   try {
-    const target = await waitForElement('#tabletGrid > div.page_content_ctn > div.page_content.middle_page > div.rightcol.game_meta_data');
-
     // TODO: check if promise already resolved so I can skip skeleton?
     target.insertAdjacentHTML('afterbegin', renderSkeleton());
-    
-    document.getElementById('pop').outerHTML = renderWidget((await promise).data);
+
+    const result = await globalThis.popPromise;
+    document.getElementById('pop').outerHTML = renderWidget(result.data);
   } catch (error) {
-    const message = error instanceof TypeError ? 'Nie można połączyć z serwerem.' : error.message;
+    const message = error instanceof TypeError ? `Nie można połączyć z serwerem: ${error.message}` : error.message;
 
     const elem = document.getElementById('pop');
     if (elem) elem.outerHTML = renderError(message);

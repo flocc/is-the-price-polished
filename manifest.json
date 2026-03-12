@@ -1,7 +1,7 @@
 {
   "manifest_version": 3,
   "name": "Is the Price Polished?",
-  "version": "0.3.7",
+  "version": "0.3.8",
   "description": "Porównywarka cen PLN względem EUR na Steam",
   "icons": {
     "128": "icons/icon128.png"
@@ -13,8 +13,13 @@
     {
       "matches": ["https://store.steampowered.com/app/*"],
       "css": ["styles/main.css"],
-      "js": ["content/index.js"],
+      "js": ["content/prefetch.js"],
       "run_at": "document_start"
+    },
+    {
+      "matches": ["https://store.steampowered.com/app/*"],
+      "js": ["content/index.js"],
+      "run_at": "document_end"
     }
   ],
   "web_accessible_resources": [

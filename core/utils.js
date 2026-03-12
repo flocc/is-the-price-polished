@@ -46,26 +46,3 @@ export function getReviewReactionSvg(pop) {
 export function getValveType(change) {
   return change > 0 ? 'valve-increase' : 'valve-decrease';
 }
-
-
-export function waitForElement(selector, timeout = 6666) {
-  return new Promise((resolve, reject) => {
-    const elem = document.querySelector(selector);
-    if (elem) return resolve(elem);
-
-    const observer = new MutationObserver(() => {
-      const found = document.querySelector(selector);
-      if (found) {
-        observer.disconnect();
-        resolve(found);
-      }
-    });
-
-    observer.observe(document, { childList: true, subtree: true });
-
-    setTimeout(() => {
-      observer.disconnect();
-      reject(new Error('Selektor nie znaleziony.'));
-    }, timeout);
-  });
-}
