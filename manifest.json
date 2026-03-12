@@ -1,11 +1,14 @@
 {
   "manifest_version": 3,
   "name": "Is the Price Polished?",
-  "version": "0.3.6",
+  "version": "0.3.7",
   "description": "Porównywarka cen PLN względem EUR na Steam",
   "icons": {
     "128": "icons/icon128.png"
   },
+  "host_permissions": [
+    "https://polishourprices.pl/*"
+  ],
   "content_scripts": [
     {
       "matches": ["https://store.steampowered.com/app/*"],
