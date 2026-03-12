@@ -3,12 +3,24 @@
   --col-2: 92px;
   --col-3: 28px;
   --col-4: 92px;
-  --pop-positive-3: #8abb3c;
-  --pop-positive-2: #8abb3c;
-  --pop-positive-1: #8abb3c;
+  /* --pop-positive-3: #8abb3c; */
+  /* --pop-positive-2: #8abb3c; */
+  --pop-positive-3: #85AD1A;
+  --pop-positive-2: #85AD1A;
+  /* --pop-positive-1: #8abb3c; */
+  /* --pop-positive-1: #85AD1A; */
+  /* --pop-positive-1: #afdf3f; */
+  /* --pop-positive-1: #B3DF2D; */
+  /* --pop-positive-1: #A5F018; */
+  --pop-positive-1: #A0D84B;
+  --pop-positive-1: #9FE339;
+  --pop-positive-1: #A9D459;
   --pop-neutral: goldenrod;
   --pop-negative-1: #ff4242;
   --pop-negative-2: #ff4242;
+  --pop-negative-2: #FF4E3A;
+  --pop-negative-2: #FF4242;
+  --pop-negative-2: #FF2E2E;
   --pop-negative-3: #ff4242;
 }
 
@@ -179,5 +191,11 @@
 #pop hr.pop-line {
   border: none;
   height: 0;
-  border-top: 1px #444 solid;
+  /* border-top: 2px #444 solid; */
+  /* border-top: 2px #1e2837 solid; */
+  /* border-top: 2px #1c2633 solid; */
+  /* border-top: 2px #1f2938 solid; */
+  /* border-top: 1px #85b6e1 solid; */
+
+  border-top: 1px rgb(68, 115, 156) solid;
 }
