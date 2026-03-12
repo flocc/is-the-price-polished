@@ -18,6 +18,7 @@ if (appId) {
       popLog('fetch resolved');
       if (response.status === 400) throw new Error('Niepoprawny ID gry.');
       if (response.status === 404) throw new Error('W tej chwili gry spoza kuratorów nie są obsługiwane. Ale to się zmieni niedługo!');
+      if (response.status === 422) throw new Error('Gra nie miała jeszcze premiery.');
       if (response.status === 500) throw new Error('Problem z serwerem.');
       if (!response.ok) throw new Error(`Inny (${response.status})`);
       return response.json();
