@@ -156,6 +156,10 @@
   -webkit-user-select: none;
 }
 
+#pop div.flag img {
+  border-radius: 2px;
+}
+
 #pop div.flag.polish-dev::before {
   content: '';
   position: absolute;
