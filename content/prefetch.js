@@ -9,9 +9,11 @@ popLog('document_start');
 
 const appId = window.location.pathname.match(/\/app\/(\d+)/)?.[1];
 
+var popPromise = null;
+
 if (appId) {
   popLog('fetch start');
-  globalThis.popPromise = fetch(`https://polishourprices.pl/api/games/${appId}`)
+  popPromise = fetch(`https://polishourprices.pl/api/games/${appId}`)
     .then(response => {
       popLog('fetch resolved');
       if (response.status === 400) throw new Error('Niepoprawny ID gry.');
