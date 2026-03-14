@@ -6,7 +6,7 @@ const renderWidget = (data) => {
   if (!data) return '';
 
   const polishDev = data.isPolishDev ? 'polish-dev' : '';
-  const polishDevTooltip = data.isPolishDev ? 'Developer lub/i wydawca jest z Polski' : '';
+  const polishDevTooltip = data.isPolishDev ? 'Polski wydawca/developer' : '';
 
   const diffTooltip = getDiffTooltip(data.diff)
   const diffPctTooltip = getDiffPctTooltip(data.diff)
@@ -35,25 +35,25 @@ const renderWidget = (data) => {
         <div class="row">
           <div class="flag ${polishDev}" data-tooltip-text="${polishDevTooltip}"><img src="${plFlag}"></div>
           <div class="price">
-            <div class="price-value"><span data-tooltip-text="Bazowa cena w Polsce">${pln}
+            <div class="price-value"><span data-tooltip-text="Cena w PLN">${pln}
               <span class="currency"> zł</span></span>
-              <span class="valve-diff-pct ${valveTypePln}" data-tooltip-text="Różnica od sugerowanej ceny (%)">${valveDiffPctPln}</span>
+              <span class="valve-diff-pct ${valveTypePln}" data-tooltip-text="Różnica względem ceny rekomendowanej (%)">${valveDiffPctPln}</span>
             </div>
           </div>
           <div class="span-2"></div>
-          <div class="valve-recommendation"><span data-tooltip-text="Sugerowana cena w Polsce">${valvePln}<span class="currency"> zł</span></span></div>
+          <div class="valve-recommendation"><span data-tooltip-text="Cena rekomendowana przez Valve">${valvePln}<span class="currency"> zł</span></span></div>
         </div>
         <div class="row">
           <div class="flag"><img src="${euFlag}"></div>
-          <div class="price" data-tooltip-text="Bazowa cena w Europie przeliczona na złotówki">${eurConverted}<span class="currency"> zł</span></div>
-          <div class="arrow"><span data-tooltip-text="EUR/PLN = ${eurRate}">🡄</span></div>
+          <div class="price" data-tooltip-text="Cena w EUR przeliczona na PLN">${eurConverted}<span class="currency"> zł</span></div>
+          <div class="arrow"><span data-tooltip-text="Kurs EUR/PLN: ${eurRate}">🡄</span></div>
           <div class="price price-left">
-            <div class="price-value"><span data-tooltip-text="Bazowa cena w Europie">${eur}
+            <div class="price-value"><span data-tooltip-text="Cena w EUR">${eur}
               <span class="currency"> €</span></span>
-              <span class="valve-diff-pct ${valveTypeEur}" data-tooltip-text="Różnica od sugerowanej ceny (%)">${valveDiffPctEur}</span>
+              <span class="valve-diff-pct ${valveTypeEur}" data-tooltip-text="Różnica względem ceny rekomendowanej (%)">${valveDiffPctEur}</span>
               </div>
             </div>
-          <div class="valve-recommendation"><span data-tooltip-text="Sugerowana cena w Europie">${valveEur}<span class="currency"> €</span></span></div>
+          <div class="valve-recommendation"><span data-tooltip-text="Cena rekomendowana przez Valve">${valveEur}<span class="currency"> €</span></span></div>
         </div>
         <hr class="pop-line" style="--color: var(--${reviewTier})">
         <div class="row ${reviewTier}">
