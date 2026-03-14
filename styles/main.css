@@ -170,6 +170,7 @@
 
 #pop div.flag img {
   border-radius: 2px;
+  z-index: 1;
 }
 
 #pop div.flag.polish-dev::before {
@@ -177,15 +178,20 @@
   position: absolute;
   width: 100%;
   height: 100%;
-  outline: 4px solid rgba(255, 0, 0, 0.6);
+  outline: 3px solid #7e38d9;
   outline-offset: 2px;
-  filter: blur(4px);
-  animation: polish-dev 8s infinite ease-in-out;
+  filter: blur(3px);
+  animation: polish-dev 3s infinite ease-in-out;
+  border-radius: 2px;
+  z-index: -1;
 }
 
+
 @keyframes polish-dev {
-  0%, 20%, 80%, 100% { opacity: 0; }
-  50% { opacity: 1; }
+  0%  { transform: scale(1);  }
+  30%  { transform: scale(0);  }
+  70%  { transform: scale(0);  }
+  100%  { transform: scale(1);  }
 }
 
 #pop hr.pop-line {
