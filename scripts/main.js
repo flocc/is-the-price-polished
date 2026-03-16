@@ -1,4 +1,4 @@
-popLog('document_end');
+debug('document_end');
 
 const init = async () => {
   const target = document.querySelector('div.rightcol.game_meta_data');
