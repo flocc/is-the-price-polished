@@ -17,7 +17,7 @@ var popPromise = null;
 
 if (appId) {
   debug('fetch start');
-  popPromise = fetch(`https://polishourprices.pl/api/games/${appId}`)
+  popPromise = fetch(`https://api.polishourprices.pl/games/${appId}`)
     .then(response => {
       debug('fetch resolved');
       if (response.status === 400) throw new Error('Niepoprawny ID gry.');

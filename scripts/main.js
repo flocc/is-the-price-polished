@@ -9,7 +9,7 @@ const init = async () => {
     target.insertAdjacentHTML('afterbegin', renderSkeleton());
 
     const result = await popPromise;
-    document.getElementById('pop').outerHTML = renderWidget(result.data);
+    document.getElementById('pop').outerHTML = renderWidget(result);
   } catch (error) {
     const message = error instanceof TypeError ? `Nie można połączyć z serwerem: ${error.message}` : error.message;
 
