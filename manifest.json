@@ -7,6 +7,7 @@
     "128": "icons/icon128.png"
   },
   "host_permissions": [
+    "https://store.steampowered.com/*",
     "https://api.polishourprices.pl/*"
   ],
   "content_scripts": [
@@ -32,7 +33,7 @@
       "resources": [
         "assets/flags/*.svg"
       ],
-      "matches": ["https://store.steampowered.com/*"]
+      "matches": ["https://store.steampowered.com/app/*"]
     }
   ]
 }
