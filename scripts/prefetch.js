@@ -71,7 +71,10 @@ const initStorage = () => {
     localStorage.setItem('pop-valve', 'multi');
   }
 
+  console.log('window.pop.currencies: ', window.pop.currencies);
+
   Object.keys(window.pop.currencies).forEach(code => {
+    console.log('code: ', code);
     const storageBasic = `pop-${code.toLowerCase()}-basic`;
     const storageDiff = `pop-${code.toLowerCase()}-diff`;
 

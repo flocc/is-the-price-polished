@@ -10,9 +10,10 @@ const init = async () => {
     // TODO: asdfdsafd
     const result = await popPromise;
 
+    initStorage();
+
     document.getElementById('pop').outerHTML = renderWidget();
 
-    initStorage();
     initValveMethodHook();
     initMenuHook();
 
