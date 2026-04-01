@@ -125,7 +125,7 @@ var popPromise = null;
 if (appId) {
   debug(`fetch start for appId: ${appId}`);
 
-  popPromise = fetch(`https://api.polishourprices.pl/games/${appId}?v=2`)
+  popPromise = fetch(`https://api.polishourprices.pl/games/${appId}`)
     .then(response => {
       debug(`fetch status: ${response.status}`);
       
