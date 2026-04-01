@@ -5,17 +5,24 @@ const init = async () => {
   if (!target || !globalThis.popPromise) return;
 
   try {
-    // TODO: check if promise already resolved so I can skip skeleton?
     target.insertAdjacentHTML('afterbegin', renderSkeleton());
 
+    // TODO: asdfdsafd
     const result = await popPromise;
-    document.getElementById('pop').outerHTML = renderWidget(result);
-  } catch (error) {
-    const message = error instanceof TypeError ? `Nie można połączyć z serwerem: ${error.message}` : error.message;
 
-    const elem = document.getElementById('pop');
-    if (elem) elem.outerHTML = renderError(message);
+    document.getElementById('pop').outerHTML = renderWidget();
+
+    initStorage();
+    initValveMethodHook();
+    initMenuHook();
+
+    updateValveMethod();
+
+  } catch (error) {
+    document.getElementById('pop').outerHTML = renderError(error.message);
   }
 };
 
 init();
+
+
