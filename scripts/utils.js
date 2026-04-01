@@ -72,8 +72,6 @@ function updateValveMethod(valveMethod = null) {
   else
     valveMethod = localStorage.getItem('pop-valve') ?? 'multi';
 
-  // window.pop.valve = valveMethod;
-
   document.querySelectorAll('.pop_valve').forEach(btn => {
     btn.classList.toggle('active', btn.id.toLowerCase().includes(valveMethod));
   });

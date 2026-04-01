@@ -1,8 +1,5 @@
 const version = chrome.runtime.getManifest().version
 
-// const settings = icons["settings"];
-const hamburger = icons["hamburger"];
-// const moreHorizontal = icons["moreHorizontal"];
 const moreVertical = icons["moreVertical"];
 const arrowDropDown = icons["arrowDropDown"];
 const coffee = icons["coffee"];
@@ -12,12 +9,9 @@ const bluesky = icons["bluesky"];
 const steam = icons["steam"];
 const www = icons["www"];
 const facebook = icons["facebook"];
-const heartStroke = icons['heartStroke'];
 const polishDev = icons['polishDev'];
-
 const visibility = icons["visibility"];
 const scale = icons["scale"];
-
 
 // TODO: fix: don't send whole object lol
 const renderCurrencyMenu = (cc) => {
@@ -33,14 +27,14 @@ const renderCurrencyMenu = (cc) => {
       <span class="flag">${flag}</span>
       <span>${code}</span>
 
-      <label class="icon-toggle icon-toggle--visibility">
+      <label class="icon-toggle icon-toggle-visibility">
         <input type="checkbox" id="pop-${code.toLowerCase()}-basic" ${isBasicChecked ? 'checked' : ''} />
-        <span class="icon-toggle__icon">${visibility}</span>
+        <span class="icon-toggle-icon">${visibility}</span>
       </label>
 
-      <label class="icon-toggle icon-toggle--scale">
+      <label class="icon-toggle icon-toggle-scale">
         <input type="checkbox" id="pop-${code.toLowerCase()}-diff" ${isDiffChecked ? 'checked' : ''} />
-        <span class="icon-toggle__icon">${scale}</span>
+        <span class="icon-toggle-icon">${scale}</span>
       </label>
     </div>
   `;
@@ -187,7 +181,7 @@ const renderWidget = () => {
 
             <div class="socials">
               <span class="pop-menu-label pop-menu-label-pop"><span style="color: #c72626; margin-right: 2px;">#</span>PolishOurPrices</span>
-              <div class="socials__row">
+              <div class="socials-row">
                 <a class="social-btn" href="https://discord.gg/exfzeYSpqW" target="_blank" rel="noopener">${discord}</a>
                 <a class="social-btn" href="https://store.steampowered.com/curator/45074143" target="_blank" rel="noopener">${steam}</a>
                 <a class="social-btn" href="https://polishourprices.pl" target="_blank" rel="noopener">${www}</a>

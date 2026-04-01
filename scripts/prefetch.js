@@ -17,10 +17,6 @@ const BASE = [
   'diff',
   'diff_pct',
   'rate',
-  // 'pop_target',
-  // 'pop_score',
-  // 'pop_rank',
-  // 'pop_desc',
 ];
 
 const VALVE = [
@@ -43,7 +39,6 @@ const SYMBOLS = {
 const createCurrency = (code) => {
   const base = { 
     code: code,
-    // flag: `flags['${code}']`,
     symbol: SYMBOLS[code],
     valve: {}
   };
@@ -58,7 +53,6 @@ const createCurrency = (code) => {
 };
 
 window.pop = window.pop || {
-  // valve: 'multi',
   theme: 'material'
 };
 
@@ -92,10 +86,8 @@ const initStorage = () => {
 }
 
 
-
 const updatePopData = (apiResponse) => {
   window.pop.is_polish_dev = apiResponse.is_polish_dev;
-  // console.log('is_polish_dev: ', apiResponse.is_polish_dev);
   window.pop.pop_target = apiResponse.pop_target;
   window.pop.pop_score = apiResponse.pop_score;
   window.pop.pop_rank = apiResponse.pop_rank;
@@ -138,7 +130,7 @@ if (appId) {
       if (response.status === 404) throw new Error('Obecnie gry spoza naszych kuratorów nie działają z rozszerzeniem. W przyszłości planowana jest obsługa wszystkich gier. :)');
       if (response.status === 422) throw new Error('Gra jest w naszej bazie, ale nie miała jeszcze premiery. :)');
       if (response.status === 500) throw new Error('Problem z serwerem API. :(');
-      if (!response.ok) throw new Error(`Błąd sieci: ${response.status}`);
+      if (!response.ok) throw new Error(`Inny: ${response.status}`);
       
       return response.json();
     })
