@@ -10,6 +10,7 @@ const steam = icons["steam"];
 const www = icons["www"];
 const facebook = icons["facebook"];
 const polishDev = icons['polishDev'];
+const polishDevBad = icons['polishDevBad'];
 const visibility = icons["visibility"];
 const scale = icons["scale"];
 
@@ -69,7 +70,7 @@ const renderCurrencyBlock = (cc) => {
     <div class="pop-currency-block PLN">
       <div class="pop_row pop-basic ${basicVisible}">
         ${window.pop.is_polish_dev ? `
-        <div class="flag" data-tooltip-text="Polski wydawca/developer">${polishDev}</div>` : `
+        <div class="flag" data-tooltip-text="Polski wydawca/developer">${popRank < 1 ? polishDevBad : polishDev}</div>` : `
         <div class="flag">${flag}</div>`}
 
         <div class="pop_price">
