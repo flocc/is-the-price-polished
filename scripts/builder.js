@@ -143,8 +143,8 @@ const renderWidget = () => {
       <div class="pop-header">
         <span class="pop-header-title">Is the Price Polished?</span>
         <div class="pop_buttons">
-          <button id="valveExchangeBtn" class="pop_valve ${valve === 'exchange' ? 'active' : ''}" data-tooltip-text='Konwersja używająca tylko kursu walut'>${icons["valveExchange"]}</button>
           <button id="valvePowerBtn" class="pop_valve ${valve === 'power' ? 'active' : ''}" data-tooltip-text='Konwersja używająca tylko siły nabywczej'>${icons["valvePower"]}</button>
+          <button id="valveExchangeBtn" class="pop_valve ${valve === 'exchange' ? 'active' : ''}" data-tooltip-text='Konwersja używająca tylko kursu walut'>${icons["valveExchange"]}</button>
           <button id="valveMultiBtn" class="pop_valve ${valve === 'multi' ? 'active' : ''}" data-tooltip-text='Konwersja wielozmienna'>${icons["valveMulti"]}</button>
           <button id="valveOldBtn" class="pop_valve ${valve === 'old' ? 'active' : ''}" data-tooltip-text='Archiwalna konwersja (2022-2026)'>${icons["valveOld"]}</button>
         </div>
