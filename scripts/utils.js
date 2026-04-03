@@ -88,9 +88,17 @@ function updateValveMethod(valveMethod = null) {
       const valvePrice = block.querySelector('.valve-recommendation');
       const valveDiffPct = block.querySelector('.valve-diff-pct');
 
-      if (valvePrice) valvePrice.textContent = `${fmt(valve.price, code)} ${currencies[cc].symbol}`;
+      if (valvePrice) {
+        valvePrice.textContent = `${fmt(valve.price, code)} ${currencies[cc].symbol}`;
+      }
+
       if (valveDiffPct) {
         valveDiffPct.innerHTML = valve.diff_pct !== 0 ? fmtSigned(valve.diff_pct) + '%' : '';
+        valveDiffPct.classList.remove('valve-increase', 'valve-decrease');
+        
+        if (valve.diff_pct !== 0) {
+          valveDiffPct.classList.add(getValveType(valve.diff_pct));
+        }
       }
     }
   });
