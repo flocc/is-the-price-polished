@@ -1,6 +1,6 @@
 const version = chrome.runtime.getManifest().version
 
-const moreVertical = icons["moreVertical"];
+const hamburger = icons["hamburger"];
 const arrowDropDown = icons["arrowDropDown"];
 const coffee = icons["coffee"];
 const discord = icons["discord"];
@@ -150,7 +150,7 @@ const renderWidget = () => {
           <button id="valveOldBtn" class="pop_valve ${valve === 'old' ? 'active' : ''}" data-method="old" data-tooltip-text='Archiwalna konwersja (2022-2026)'>${icons["valveOld"]}</button>
           <button id="valveOld2017Btn" class="pop_valve ${valve === 'old2017' ? 'active' : ''}" data-method="old2017" data-tooltip-text='Archiwalna konwersja (2017-2022)'>${icons["valveOld2017"]}</button>
         </div>
-        <button id="burgerBtn" class="pop_menu">${moreVertical}</button>
+        <button id="burgerBtn" class="pop_menu">${hamburger}</button>
       </div>
 
       <div class="pop_data">

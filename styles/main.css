@@ -117,7 +117,11 @@ svg {
   align-items: center;
   color: rgba(164, 176, 193, 0.7);
   box-sizing: border-box;
-  margin-left: 18px;
+  margin-left: 22px;
+}
+
+#burgerBtn svg {
+  height: 24px;
 }
 
 .pop-header svg {
