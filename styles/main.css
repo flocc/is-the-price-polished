@@ -133,7 +133,7 @@ svg {
   all: unset;
   cursor: pointer;
   display: flex;
-  padding: 0 2px;
+  padding: 0 3px;
   box-sizing: border-box;
   color: #bbb;
   color: #a3afc0;
