@@ -59,7 +59,8 @@ function initValveMethodHook() {
     const btn = e.target.closest('.pop_valve');
     if (!btn) return;
 
-    const method = btn.id.replace('valve', '').replace('Btn', '').toLowerCase();
+    // const method = btn.id.replace('valve', '').replace('Btn', '').toLowerCase();
+    const method = btn.dataset.method;
 
     updateValveMethod(method);
   });
@@ -73,7 +74,7 @@ function updateValveMethod(valveMethod = null) {
     valveMethod = localStorage.getItem('pop-valve') ?? 'multi';
 
   document.querySelectorAll('.pop_valve').forEach(btn => {
-    btn.classList.toggle('active', btn.id.toLowerCase().includes(valveMethod));
+    btn.classList.toggle('active', btn.dataset.method === valveMethod);
   });
 
   const currencies = window.pop.currencies;

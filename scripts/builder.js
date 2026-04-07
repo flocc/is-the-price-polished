@@ -143,10 +143,11 @@ const renderWidget = () => {
       <div class="pop-header">
         <span class="pop-header-title">Is the Price Polished?</span>
         <div class="pop_buttons">
-          <button id="valvePowerBtn" class="pop_valve ${valve === 'power' ? 'active' : ''}" data-tooltip-text='Konwersja używająca tylko siły nabywczej'>${icons["valvePower"]}</button>
-          <button id="valveExchangeBtn" class="pop_valve ${valve === 'exchange' ? 'active' : ''}" data-tooltip-text='Konwersja używająca tylko kursu walut'>${icons["valveExchange"]}</button>
-          <button id="valveMultiBtn" class="pop_valve ${valve === 'multi' ? 'active' : ''}" data-tooltip-text='Konwersja wielozmienna'>${icons["valveMulti"]}</button>
-          <button id="valveOldBtn" class="pop_valve ${valve === 'old' ? 'active' : ''}" data-tooltip-text='Archiwalna konwersja (2022-2026)'>${icons["valveOld"]}</button>
+          <button id="valvePowerBtn" class="pop_valve ${valve === 'power' ? 'active' : ''}" data-method="power" data-tooltip-text='Konwersja używająca tylko siły nabywczej'>${icons["valvePower"]}</button>
+          <button id="valveExchangeBtn" class="pop_valve ${valve === 'exchange' ? 'active' : ''}" data-method="exchange" data-tooltip-text='Konwersja używająca tylko kursu walut'>${icons["valveExchange"]}</button>
+          <button id="valveMultiBtn" class="pop_valve ${valve === 'multi' ? 'active' : ''}" data-method="multi" data-tooltip-text='Konwersja wielozmienna'>${icons["valveMulti"]}</button>
+          <button id="valveOldBtn" class="pop_valve ${valve === 'old' ? 'active' : ''}" data-method="old" data-tooltip-text='Archiwalna konwersja (2022-2026)'>${icons["valveOld"]}</button>
+          <button id="valveOld2017Btn" class="pop_valve ${valve === 'old2017' ? 'active' : ''}" data-method="old2017" data-tooltip-text='Archiwalna konwersja (2017-2022)'>${icons["valveOld2017"]}</button>
         </div>
         <button id="burgerBtn" class="pop_menu">${moreVertical}</button>
       </div>

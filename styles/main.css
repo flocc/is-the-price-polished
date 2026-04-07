@@ -107,7 +107,7 @@ svg {
 .pop_buttons button {
   padding-top: 1px;
   padding-bottom: 1px;
-  margin: 0 2px;
+  margin: 0 0px;
 }
 
 .pop_menu {
@@ -117,7 +117,7 @@ svg {
   align-items: center;
   color: rgba(164, 176, 193, 0.7);
   box-sizing: border-box;
-  margin-left: 24px;
+  margin-left: 18px;
 }
 
 .pop-header svg {
@@ -133,7 +133,7 @@ svg {
   all: unset;
   cursor: pointer;
   display: flex;
-  padding: 0 4px;
+  padding: 0 2px;
   box-sizing: border-box;
   color: #bbb;
   color: #a3afc0;

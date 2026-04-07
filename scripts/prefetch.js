@@ -23,7 +23,8 @@ const VALVE = [
   'exchange',
   'power',
   'multi',
-  'old'
+  'old',
+  'old2017'
 ];
 
 const SYMBOLS = {
