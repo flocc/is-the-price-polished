@@ -1,7 +1,7 @@
 {
   "manifest_version": 3,
   "name": "Is the Price Polished?",
-  "version": "1.1.1",
+  "version": "1.1.2",
   "description": "Sprawdź, czy cena gry na Steam jest uczciwa!",
   "icons": {
     "128": "icons/icon128.png"

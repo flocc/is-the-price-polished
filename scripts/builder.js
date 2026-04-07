@@ -195,7 +195,7 @@ const renderWidget = () => {
             </div>
             <div class="socials">
               <span class="heart">Za tym rozszerzeniem<br>stoją godziny pracy.</span>
-              <a class="social-btn coffee" href="https://buycoffee.to/flocc" target="_blank" rel="noopener">${coffee}</a>
+              <a class="social-btn coffee" href="https://buycoffee.to/flocc" target="_blank" rel="noopener" data-tooltip-text="Wesprzyj twórcę kawą">${coffee}</a>
               <span class="heart">Doceniasz?<br>Postaw mi kawę ${icons["heart"]}</span>
             </div>
 

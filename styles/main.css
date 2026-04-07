@@ -569,6 +569,8 @@ svg {
 
 .social-btn.coffee {
   align-self: center;
+  box-shadow:
+    0 0 24px rgba(231,114,172,1.0);
 }
 
 .social-btn:hover {
