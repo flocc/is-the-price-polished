@@ -8,6 +8,7 @@ const twitter = icons["twitter"];
 const bluesky = icons["bluesky"];
 const steam = icons["steam"];
 const www = icons["www"];
+const youtube = icons["youtube"];
 const facebook = icons["facebook"];
 const polishDev = icons['polishDev'];
 const polishDevBad = icons['polishDevBad'];
@@ -182,11 +183,11 @@ const renderWidget = () => {
           <div id="popExtraMenu" class="pop-menu-extra pop-socials-hidden">
 
             <div class="socials">
-              <span class="pop-menu-label pop-menu-label-pop"><span style="color: #c72626; margin-right: 2px;">#</span>PolishOurPrices</span>
+              <span class="pop-menu-label pop-menu-label-pop"><a href="https://polishourprices.pl/dla_graczy" target="_blank" rel="noopener"><span style="color: #c72626;">#</span>PolishOurPrices</span></a>
               <div class="socials-row">
                 <a class="social-btn" href="https://discord.gg/exfzeYSpqW" target="_blank" rel="noopener">${discord}</a>
                 <a class="social-btn" href="https://store.steampowered.com/curator/45074143" target="_blank" rel="noopener">${steam}</a>
-                <a class="social-btn" href="https://polishourprices.pl" target="_blank" rel="noopener">${www}</a>
+                <a class="social-btn" href="https://www.youtube.com/@PolishOurPrices" target="_blank" rel="noopener">${youtube}</a>
                 <a class="social-btn" href="https://x.com/polishourprices" target="_blank" rel="noopener">${twitter}</a>
                 <a class="social-btn" href="https://bsky.app/profile/polishourprices.pl" target="_blank" rel="noopener">${bluesky}</a>
                 <a class="social-btn" href="https://www.facebook.com/profile.php?id=61582951236530" target="_blank" rel="noopener">${facebook}</a>
