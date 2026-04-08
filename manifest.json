@@ -36,7 +36,7 @@
     "gecko": {
       "id": "extension@polishourprices.pl",
       "data_collection_permissions": {
-        "required": [],
+        "required": ["none"],
         "optional": []
       }
     }

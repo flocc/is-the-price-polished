@@ -1,9 +1,8 @@
 debug('document_end');
 
 const mountHTML = (html) => {
-  const t = document.createElement('template');
-  t.innerHTML = html;
-  return t.content.firstElementChild;
+  const doc = new DOMParser().parseFromString(html, 'text/html');
+  return doc.body.firstElementChild;
 };
 
 const init = async () => {
