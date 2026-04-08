@@ -72,10 +72,7 @@ const initStorage = () => {
     localStorage.setItem('pop-valve', 'multi');
   }
 
-  console.log('window.pop.currencies: ', window.pop.currencies);
-
   Object.keys(window.pop.currencies).forEach(code => {
-    console.log('code: ', code);
     const storageBasic = `pop-${code.toLowerCase()}-basic`;
     const storageDiff = `pop-${code.toLowerCase()}-diff`;
 
@@ -123,24 +120,40 @@ const updatePopData = (apiResponse) => {
 const appId = window.location.pathname.match(/\/app\/(\d+)/)?.[1];
 var popPromise = null;
 
+const fetchBackground = (appId) => new Promise((resolve, reject) => {
+  chrome.runtime.sendMessage({ type: 'FETCH_GAME', appId }, (response) => {
+    if (chrome.runtime.lastError)
+      return reject(Object.assign(new Error(chrome.runtime.lastError.message), { isBackgroundError: true }));
+    if (!response)
+      return reject(Object.assign(new Error('Brak odpowiedzi'), { isBackgroundError: true }));
+    if (response.error)
+      return reject(new Error(response.error));
+    resolve(response.data);
+  });
+});
+
+const fetchDirect = (appId) =>
+  fetch(`https://api.polishourprices.pl/games/${appId}`)
+    .then(res => {
+      if (res.status === 400) throw new Error('Niepoprawny ID gry. :)');
+      if (res.status === 404) throw new Error('Obecnie gry spoza naszych kuratorów nie działają z rozszerzeniem. W przyszłości planowana jest obsługa wszystkich gier. :)');
+      if (res.status === 422) throw new Error('Gra jest w naszej bazie, ale nie miała jeszcze premiery. :)');
+      if (res.status === 500) throw new Error('Problem z serwerem API. :(');
+      if (!res.ok) throw new Error(`Inny: ${res.status}`);
+      return res.json();
+    });
+
 if (appId) {
   debug(`fetch start for appId: ${appId}`);
 
-  popPromise = fetch(`https://api.polishourprices.pl/games/${appId}`)
-    .then(response => {
-      debug(`fetch status: ${response.status}`);
-      
-      if (response.status === 400) throw new Error('Niepoprawny ID gry. :)');
-      if (response.status === 404) throw new Error('Obecnie gry spoza naszych kuratorów nie działają z rozszerzeniem. W przyszłości planowana jest obsługa wszystkich gier. :)');
-      if (response.status === 422) throw new Error('Gra jest w naszej bazie, ale nie miała jeszcze premiery. :)');
-      if (response.status === 500) throw new Error('Problem z serwerem API. :(');
-      if (!response.ok) throw new Error(`Inny: ${response.status}`);
-      
-      return response.json();
+  popPromise = fetchBackground(appId)
+    .catch(err => {
+      if (!err.isBackgroundError) throw err;
+      debug(`background failed (${err.message}), retrying direct`);
+      return fetchDirect(appId);
     })
     .then(data => {
-      updatePopData(data); 
-      
+      debug(`fetch ok`);
       return data;
     })
     .catch(err => {

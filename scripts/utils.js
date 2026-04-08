@@ -1,3 +1,11 @@
+const escapeHTML = (str) =>
+  String(str ?? '')
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+    .replace(/'/g, '&#039;');
+
 const nfSigned = new Intl.NumberFormat('pl-PL', {
   minimumFractionDigits: 2,
   maximumFractionDigits: 2,
@@ -19,6 +27,24 @@ const fmtSigned = v => {
     }
     return part.value;
   }).join('');
+};
+
+const fmtSignedDOM = (v) => {
+  const frag = document.createDocumentFragment();
+  if (v == null) return frag;
+
+  const parts = nfSigned.formatToParts(v / 100);
+  parts.forEach(part => {
+    if (part.type === 'plusSign' || part.type === 'minusSign') {
+      const span = document.createElement('span');
+      span.className = 'pop_sign';
+      span.textContent = part.value;
+      frag.appendChild(span);
+    } else {
+      frag.appendChild(document.createTextNode(part.value));
+    }
+  });
+  return frag;
 };
 
 const fmtCurrency = v => {
@@ -59,7 +85,6 @@ function initValveMethodHook() {
     const btn = e.target.closest('.pop_valve');
     if (!btn) return;
 
-    // const method = btn.id.replace('valve', '').replace('Btn', '').toLowerCase();
     const method = btn.dataset.method;
 
     updateValveMethod(method);
@@ -94,13 +119,18 @@ function updateValveMethod(valveMethod = null) {
       }
 
       if (valveDiffPct) {
-        valveDiffPct.innerHTML = valve.diff_pct !== 0 ? fmtSigned(valve.diff_pct) + '%' : '';
-        valveDiffPct.classList.remove('valve-increase', 'valve-decrease');
-        
+        while (valveDiffPct.firstChild) valveDiffPct.removeChild(valveDiffPct.firstChild);
+
         if (valve.diff_pct !== 0) {
-          valveDiffPct.classList.add(getValveType(valve.diff_pct));
+          const fragment = fmtSignedDOM(valve.diff_pct);
+          fragment.appendChild(document.createTextNode('%'));
+          valveDiffPct.appendChild(fragment);
         }
+
+        valveDiffPct.classList.remove('valve-increase', 'valve-decrease');
+        if (valve.diff_pct !== 0) valveDiffPct.classList.add(getValveType(valve.diff_pct));
       }
+
     }
   });
 }
@@ -112,8 +142,6 @@ function initCurrencyToggle(cc) {
 
   const basicBlock = document.querySelector(`.pop-currency-block.${cc}`);
   const diffBlock = basicBlock.querySelector(`.${cc} .pop-diff-wrapper`);
-
-    console.log(diffBlock);
 
   function update() {
     const isBasicVisible = basicToggle.checked;

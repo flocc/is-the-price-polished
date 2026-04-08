@@ -7,7 +7,6 @@ const discord = icons["discord"];
 const twitter = icons["twitter"];
 const bluesky = icons["bluesky"];
 const steam = icons["steam"];
-const www = icons["www"];
 const youtube = icons["youtube"];
 const facebook = icons["facebook"];
 const polishDev = icons['polishDev'];
@@ -15,7 +14,6 @@ const polishDevBad = icons['polishDevBad'];
 const visibility = icons["visibility"];
 const scale = icons["scale"];
 
-// TODO: fix: don't send whole object lol
 const renderCurrencyMenu = (cc) => {
   const code = cc.code;
 
@@ -42,7 +40,6 @@ const renderCurrencyMenu = (cc) => {
   `;
 }
 
-// TODO: fix: don't send whole object lol
 const renderCurrencyBlock = (cc) => {
   const method = 'multi';
 
@@ -53,8 +50,6 @@ const renderCurrencyBlock = (cc) => {
   const diffVisible = localStorage.getItem(`pop-${code.toLowerCase()}-diff`) === 'true' ? '' : 'pop-diff-off';
 
   const valveDiffType = getValveType(valve.diff_pct);
-
-  const verdict = '';
 
   const flag = code === 'USD' ? flags['USD']() : flags[code];
 
@@ -94,7 +89,7 @@ const renderCurrencyBlock = (cc) => {
         <div class="flag">${flag}</div>
 
         <div class="pop_price" data-tooltip-text="Cena w ${code} przeliczona na PLN">${fmt(cc.in_pln)}<span class="pop_symbol">zł</span></div>
-        <div class="arrow"><span data-tooltip-text="Kurs ${code}/PLN: ${fmtCurrency(cc.rate)}">🡄</span></div>
+        <div class="arrow"><span data-tooltip-text="Kurs ${code}/PLN: ${escapeHTML(fmtCurrency(cc.rate))}">🡄</span></div>
 
         <div class="pop_price pop_price_left">
           <span data-tooltip-text="Cena w ${code}">${fmt(cc.price, code)}<span class="pop_symbol">${cc.symbol}</span></span>
@@ -116,11 +111,11 @@ ${code !== 'USD' ? `
 
   const infoDiff = `
     <div class='pop-diff-wrapper ${diffVisible}'>
-      <div class="pop_row pop-diff ${diffClass} ${verdict}">
+      <div class="pop_row pop-diff ${diffClass}">
         <div class="pop_price" data-tooltip-text='${getDiffTooltip(cc.diff)}'>${fmtSigned(cc.diff)}<span class="pop_symbol">zł</span></div>
         <div class="pop_approx">≈</div>
         <div class="pop_price pop_price_left" data-tooltip-text='${getDiffPctTooltip(cc.diff)}'>${fmtSigned(cc.diff_pct)}<span class="pop_symbol pct" style="margin-left: 2px;">%</span></div>
-        <div class="pop_context" data-tooltip-text="${window.pop.pop_desc}">${reactionSvg}</div>
+        <div class="pop_context" data-tooltip-text="${escapeHTML(window.pop.pop_desc)}">${reactionSvg}</div>
       </div>
     </div>
     </div>
@@ -132,7 +127,7 @@ ${code !== 'USD' ? `
 
 const renderWidget = () => {
 
-  const { currencies, valve, /*theme*/ } = window.pop;
+  const { currencies, valve } = window.pop;
 
   if (!currencies) return;
 
@@ -183,19 +178,21 @@ const renderWidget = () => {
           <div id="popExtraMenu" class="pop-menu-extra pop-socials-hidden">
 
             <div class="socials">
-              <span class="pop-menu-label pop-menu-label-pop"><a href="https://polishourprices.pl/dla_graczy" target="_blank" rel="noopener"><span style="color: #c72626;">#</span>PolishOurPrices</span></a>
+              <span class="pop-menu-label pop-menu-label-pop">
+                <a href="https://polishourprices.pl/dla_graczy" target="_blank" rel="noopener noreferrer"><span style="color: #c72626;">#</span>PolishOurPrices</a>
+              </span>
               <div class="socials-row">
-                <a class="social-btn" href="https://discord.gg/exfzeYSpqW" target="_blank" rel="noopener">${discord}</a>
-                <a class="social-btn" href="https://store.steampowered.com/curator/45074143" target="_blank" rel="noopener">${steam}</a>
-                <a class="social-btn" href="https://www.youtube.com/@PolishOurPrices" target="_blank" rel="noopener">${youtube}</a>
-                <a class="social-btn" href="https://x.com/polishourprices" target="_blank" rel="noopener">${twitter}</a>
-                <a class="social-btn" href="https://bsky.app/profile/polishourprices.pl" target="_blank" rel="noopener">${bluesky}</a>
-                <a class="social-btn" href="https://www.facebook.com/profile.php?id=61582951236530" target="_blank" rel="noopener">${facebook}</a>
+                <a class="social-btn" href="https://discord.gg/exfzeYSpqW" target="_blank" rel="noopener noreferrer">${discord}</a>
+                <a class="social-btn" href="https://store.steampowered.com/curator/45074143" target="_blank" rel="noopener noreferrer">${steam}</a>
+                <a class="social-btn" href="https://www.youtube.com/@PolishOurPrices" target="_blank" rel="noopener noreferrer">${youtube}</a>
+                <a class="social-btn" href="https://x.com/polishourprices" target="_blank" rel="noopener noreferrer">${twitter}</a>
+                <a class="social-btn" href="https://bsky.app/profile/polishourprices.pl" target="_blank" rel="noopener noreferrer">${bluesky}</a>
+                <a class="social-btn" href="https://www.facebook.com/profile.php?id=61582951236530" target="_blank" rel="noopener noreferrer">${facebook}</a>
               </div>
             </div>
             <div class="socials">
               <span class="heart">Za tym rozszerzeniem<br>stoją godziny pracy.</span>
-              <a class="social-btn coffee" href="https://buycoffee.to/flocc" target="_blank" rel="noopener" data-tooltip-text="Wesprzyj twórcę kawą">${coffee}</a>
+              <a class="social-btn coffee" href="https://buycoffee.to/flocc" target="_blank" rel="noopener noreferrer" data-tooltip-text="Wesprzyj twórcę kawą">${coffee}</a>
               <span class="heart">Doceniasz?<br>Postaw mi kawę ${icons["heart"]}</span>
             </div>
 
